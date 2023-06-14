@@ -41,27 +41,59 @@ public class BankAccount {
     }
 
 
+//    public String generateAccountNumber(int digits, int sum) throws Exception{
+//        //Each digit of an account number can lie between 0 and 9 (both inclusive)
+//        //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
+//        //If it is not possible, throw "Account Number can not be generated" exception
+//       if(sum<0||sum>digits*9){
+//           throw new AccountNumbercannotbegenerated("Account Number can not be generated");
+//       }
+//
+//        String AccountNumber="";
+//        int tem_Sum=sum;
+//        Random rand=new Random();
+//        for(int i=0;i<digits;i++){
+//            int bound= min(tem_Sum,10);
+//            int n= rand.nextInt(bound);
+//            AccountNumber+=String.valueOf(n);
+//            tem_Sum-=n;
+//        }
+////        if(tem_Sum>0)
+////            throw new AccountNumbercannotbegenerated("Account Number can not be generated");
+//
+//        return AccountNumber;
+//    }
+
     public String generateAccountNumber(int digits, int sum) throws Exception{
         //Each digit of an account number can lie between 0 and 9 (both inclusive)
         //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
         //If it is not possible, throw "Account Number can not be generated" exception
-       if(sum<0||sum>digits*9){
-           throw new AccountNumbercannotbegenerated("Account Number can not be generated");
-       }
 
-        String AccountNumber="";
-        int tem_Sum=sum;
-        Random rand=new Random();
-        for(int i=0;i<digits;i++){
-            int bound= min(tem_Sum,10);
-            int n= rand.nextInt(bound);
-            AccountNumber+=String.valueOf(n);
-            tem_Sum-=n;
+//        remaining number
+        int rem = sum;
+        String accNo = "";
+        if(digits*9 < sum){
+            throw new Exception("Account Number can not be generated");
         }
-//        if(tem_Sum>0)
-//            throw new AccountNumbercannotbegenerated("Account Number can not be generated");
-
-        return AccountNumber;
+        else{
+            while(digits > 0 && rem > 0){
+                if(rem >= 9){
+                    rem = rem - 9;
+                    accNo = accNo + "9";
+                }
+                else{
+                    accNo = accNo + Integer.toString(rem);
+                    rem = 0;
+                }
+                digits--;
+            }
+            while(digits > 0){
+                accNo = accNo + "0";
+                digits--;
+            }
+            return accNo;
+        }
+//        return null;
     }
 
     public void deposit(double amount) {
