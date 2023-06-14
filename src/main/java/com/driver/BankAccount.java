@@ -99,7 +99,7 @@ public class BankAccount {
     public void deposit(double amount) {
         //add amount to balance
         this.balance+=amount;
-        System.out.println("Amount added successfully Current Balance : "+balance);
+        //System.out.println("Amount added successfully Current Balance : "+balance);
 
     }
 
@@ -109,7 +109,7 @@ public class BankAccount {
             throw new Insufficient("Insufficient Balance");
         }
         balance-=amount;
-        System.out.println("Amount Withdraw Successfully Current balance : "+balance);
+        //System.out.println("Amount Withdraw Successfully Current balance : "+balance);
 
     }
 
