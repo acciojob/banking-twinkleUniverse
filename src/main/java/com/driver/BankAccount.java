@@ -58,20 +58,22 @@ public class BankAccount {
             AccountNumber+=String.valueOf(n);
             tem_Sum-=n;
         }
+//        if(tem_Sum>0)
+//            throw new AccountNumbercannotbegenerated("Account Number can not be generated");
 
         return AccountNumber;
     }
 
     public void deposit(double amount) {
         //add amount to balance
-        this.balance=amount;
+        this.balance+=amount;
         System.out.println("Amount added successfully Current Balance : "+balance);
 
     }
 
     public void withdraw(double amount) throws Exception {
         // Remember to throw "Insufficient Balance" exception, if the remaining amount would be less than minimum balance
-        if(balance<amount){
+        if(this.balance-amount<getMinBalance()){
             throw new Insufficient("Insufficient Balance");
         }
         balance-=amount;

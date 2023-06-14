@@ -27,9 +27,8 @@ public class SavingsAccount extends BankAccount{
         // 2. "Insufficient Balance" : If the amount exceeds balance
         if(getBalance()<amount)
             throw new Exception("Insufficient Balance");
-        double current_bal=getBalance()-amount;
-        setBalance(current_bal);
-        System.out.println("Your current balance is : "+current_bal);
+        super.withdraw(amount);
+        System.out.println("Your current balance is : "+getBalance());
 
     }
 
