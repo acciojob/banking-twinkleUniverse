@@ -22,21 +22,21 @@ public class SavingsAccount extends BankAccount{
     public void withdraw(double amount) throws Exception {
         // Might throw the following errors:
         // 1. "Maximum Withdraw Limit Exceed" : If the amount exceeds maximum withdrawal limit
-        if(maxWithdrawalLimit<amount) {
-            throw new Exception("Maximum Withdraw Limit Exceed");
-        }
-        //  2. "Insufficient Balance" : If the amount exceeds balance
-        if(amount>super.getBalance())
-            throw new Exception("Insufficient Balance");
-        else
-        super.withdraw(amount);
+//        if(maxWithdrawalLimit<amount) {
+//            throw new Exception("Maximum Withdraw Limit Exceed");
+//        }
+//        //  2. "Insufficient Balance" : If the amount exceeds balance
+//        if(amount>super.getBalance())
+//            throw new Exception("Insufficient Balance");
+//        else
+//        super.withdraw(amount);
         //System.out.println("Your current balance is : "+getBalance());
-//        if(amount <= maxWithdrawalLimit) {
-//            super.withdraw(amount);
-//        }
-//        else {
-//            throw new Exception("Maximum Withdraw Limit Exceeded");
-//        }
+        if(amount <= maxWithdrawalLimit) {
+            super.withdraw(amount);
+        }
+        else {
+            throw new Exception("Maximum Withdraw Limit Exceeded");
+        }
     }
 
     public double getSimpleInterest(int years){
