@@ -136,6 +136,7 @@ public class CurrentAccount extends BankAccount{
                 this.tradeLicenseId = rearrangedId;
             }
         }
+        //return tradeLicenseId;
     }
 
 
@@ -221,7 +222,7 @@ public class CurrentAccount extends BankAccount{
 
     public char getCountChar(int[] count){
         int max = 0;
-        char ch = 0;
+        char ch ='0';
         for(int i=0;i<26;i++){
             if(count[i]>max){
                 max = count[i];

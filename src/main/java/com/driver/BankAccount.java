@@ -52,11 +52,13 @@ public class BankAccount {
 //        String AccountNumber="";
 //        int tem_Sum=sum;
 //        Random rand=new Random();
-//        for(int i=0;i<digits;i++){
-//            int bound= min(tem_Sum,10);
-//            int n= rand.nextInt(bound);
-//            AccountNumber+=String.valueOf(n);
-//            tem_Sum-=n;
+//        while(tem_Sum!=0) {
+//            for (int i = 0; i < digits; i++) {
+//                int bound = min(tem_Sum, 10);
+//                int n = rand.nextInt(bound);
+//                AccountNumber += String.valueOf(n);
+//                tem_Sum -= n;
+//            }
 //        }
 ////        if(tem_Sum>0)
 ////            throw new AccountNumbercannotbegenerated("Account Number can not be generated");
@@ -73,7 +75,7 @@ public class BankAccount {
         int rem = sum;
         String accNo = "";
         if(digits*9 < sum){
-            throw new Exception("Account Number can not be generated");
+            throw new AccountNumbercannotbegenerated("Account Number can not be generated");
         }
         else{
             while(digits > 0 && rem > 0){
