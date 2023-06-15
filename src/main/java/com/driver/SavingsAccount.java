@@ -17,7 +17,7 @@ public class SavingsAccount extends BankAccount{
         // minimum balance is 0 by default
         super(name,balance,0);
         this.rate=rate;
-
+        this.maxWithdrawalLimit=maxWithdrawalLimit;
     }
     public void withdraw(double amount) throws Exception {
         // Might throw the following errors:
